@@ -1,0 +1,4 @@
+name: ngx-admin
+instances: 1
+memory: 512M
+command: npm start
