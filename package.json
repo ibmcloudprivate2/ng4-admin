@@ -43,7 +43,7 @@
     "@angular/platform-browser": "^4.4.6",
     "@angular/platform-browser-dynamic": "^4.4.6",
     "@angular/router": "^4.4.6",
-    "@asymmetrik/angular2-leaflet": "2.1.4",
+    "@asymmetrik/ngx-leaflet": "^2.5.3",
     "@nebular/auth": "2.0.0-rc.3",
     "@nebular/theme": "2.0.0-rc.3",
     "@ng-bootstrap/ng-bootstrap": "1.0.0-beta.5",
@@ -54,6 +54,7 @@
     "chart.js": "2.5.0",
     "ckeditor": "4.6.2",
     "classlist.js": "1.1.20150312",
+    "coffeescript": "^2.0.3",
     "core-js": "^2.4.1",
     "d3": "4.8.0",
     "echarts": "^3.8.5",
@@ -72,12 +73,14 @@
     "normalize.css": "6.0.0",
     "pace-js": "^1.0.2",
     "popper": "^1.0.1",
+    "popper.js": "^1.12.9",
     "roboto-fontface": "0.8.0",
     "rxjs": "^5.4.2",
     "socicon": "^3.0.5",
     "tether": "1.4.0",
     "tinymce": "4.5.7",
     "typeface-exo": "0.0.22",
+    "uuid": "^3.1.0",
     "web-animations-js": "2.2.5",
     "zone.js": "^0.8.14"
   },
@@ -109,6 +112,6 @@
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
     "tslint-language-service": "0.9.6",
-    "typescript": "~2.3.3"
+    "typescript": "^2.3.4"
   }
 }

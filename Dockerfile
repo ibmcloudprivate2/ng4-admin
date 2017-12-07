@@ -1,8 +1,11 @@
-FROM node:6.11.5-alpine
+FROM node:8.9.2-alpine
 MAINTAINER Jaric Sng <jaric.sng@gmail.com>
 
 # install deps
 ADD package.json /tmp/package.json
+RUN apk update && \
+    apk upgrade && \
+    apk add git
 RUN cd /tmp && npm install
 
 # Copy deps
