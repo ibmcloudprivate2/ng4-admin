@@ -1,64 +1,75 @@
 # Acknowledgement
-This app is adapted so that it can be deployed to on prem and off prem cloud foundry, please read akveo license of use.
+This app is adapted so that it can be deployed to on prem and off prem cloud foundry, please read [akveo](about-akveo.md) license of use.
 
-[![Build Status](https://travis-ci.org/akveo/ngx-admin.svg?branch=master)](https://travis-ci.org/akveo/ngx-admin)
-[![Join the chat at https://gitter.im/ng2-admin/Lobby](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ng2-admin/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Dependency Status](https://david-dm.org/akveo/ngx-admin/status.svg)](https://david-dm.org/akveo/ng2-admin)
-# Admin template based on Angular 4+, Bootstrap 4 and <a href="https://github.com/akveo/nebular">Nebular</a>
-<a target="_blank" href="http://akveo.com/ngx-admin/"><img src="https://i.imgur.com/XoJtfvK.gif"/></a>
+# clone this project
+```
+git clone git@github.com:ibmcloudprivate2/ng4-admin.git
+```
 
-### What's included:
+# build the project
+```
+npm install
+npm run-script build
+```
 
-- Angular 4+ & Typescript
-- Bootstrap 4+ & SCSS
-- Responsive layout
-- High resolution
-- Flexibly configurable themes with **hot-reload** (2 themes included)
-- Authentication module with multiple providers
-- Lots of awesome features:
-  - Buttons
-  - Modals
-  - Icons
-  - Typography
-  - Animated searches
-  - Forms
-  - Tabs
-  - Notifications
-  - Tables
-  - Maps
-  - Charts
-  - Editors
+# build the image
+```
+docker build . -t ngx-admin
+```
 
-And many more!
+# test docker locally
+```
+docker run -p 3000:3000 ngx-admin
+```
 
-### Demo
+# login to ICP private repo
+```
+docker login mycluster.icp:8500
+```
 
-<a target="_blank" href="http://akveo.com/ngx-admin/">Live Demo</a>
+# push docker image
+```
+docker tag ngx-admin mycluster.icp:8500/jaricdev/ngx-admin:1.0
+docker push mycluster.icp:8500/jaricdev/ngx-admin:1.0
+```
 
-### ng2-admin
-We will continue supporting ng2-admin version, but if you are starting from scratch we recommend using ngx-admin version. Unfortunately, there is no way to update from ng2-admin to ngx-admin, but some parts (Nebular components) could be manually included.
+# Deploy the image
+Refer to [deploy custom image](https://github.ibm.com/icp-ap/Learning/blob/master/demo-with-ipad.md#demo-2-custom-docker-image)
 
-### Angular 1.x version
-Here you can find Angular 1.x based version: [Blur Admin](http://akveo.github.io/blur-admin/)
+General Tab
 
-## Documentation
-This template is using [Nebular](https://github.com/akveo/nebular) modules set, documentation and other useful articles could be found [here](https://akveo.github.io/nebular/#/docs/installation/based-on-starter-kit-ngxadmin).
+name | value
+-----| -----
+Name | js-ngx-admin
 
+Container settings Tab
 
-## BrowserStack
-This project runs its tests on multiple desktop and mobile browsers using [BrowserStack](http://www.browserstack.com).
+name | value
+-----| -----
+Name | js-ngx-admin
+Image | mycluster.icp:8500/jaricdev/ngx-admin:1.0
+Container port | 3000
 
-<img src="https://cloud.githubusercontent.com/assets/131406/22254249/534d889e-e254-11e6-8427-a759fb23b7bd.png" height="40" />
+# Expose the deployment with Service
 
-### How can I support developers?
-- Star our GitHub repo :star:
-- Create pull requests, submit bugs, suggest new features or documentation updates :wrench:
-- Follow us on [Twitter](https://twitter.com/akveo_inc) :feet:
-- Like our page on [Facebook](https://www.facebook.com/akveo/) :thumbsup:
+General Tab
 
-### Looking for engineering services?
-Visit [our homepage](http://akveo.com/) or simply leave us a message to [contact@akveo.com](mailto:contact@akveo.com). We will be happy to work with you!
+name | value
+-----| -----
+Name | js-ngx-admin-service
+Type | NodePort
 
-### From Akveo
-Made with :heart: by [Akveo team](http://akveo.com/). Follow us on [Twitter](https://twitter.com/akveo_inc) to get the latest news first!
-We're always happy to receive your feedback!
+Ports Tab
+
+name | value
+-----| -----
+TCP | http, 3000, 3000
+
+Selectors Tab
+
+name | value
+-----| -----
+app | js-ngx-admin
+
+# Access the application
+[link to the deployed application](http://192.168.64.221:30450/#/pages/dashboard)
