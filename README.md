@@ -72,4 +72,5 @@ name | value
 app | js-ngx-admin
 
 # Access the application
-[link to the deployed application](http://192.168.64.221:30450/#/pages/dashboard)
+
+![app](./images/app.png)
