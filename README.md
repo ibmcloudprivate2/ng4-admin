@@ -24,13 +24,13 @@ docker run -p 3000:3000 ngx-admin
 
 # login to ICP private repo
 ```
-docker login mycluster.icp:8500
+docker login prd.icp:8500
 ```
 
 # push docker image
 ```
-docker tag ngx-admin mycluster.icp:8500/jaricdev/ngx-admin:1.0
-docker push mycluster.icp:8500/jaricdev/ngx-admin:1.0
+docker tag ngx-admin prd.icp:8500/dev/ngx-admin:1.0
+docker push prd.icp:8500/dev/ngx-admin:1.0
 ```
 
 # Deploy the image
@@ -47,8 +47,11 @@ Container settings Tab
 name | value
 -----| -----
 Name | js-ngx-admin
-Image | mycluster.icp:8500/jaricdev/ngx-admin:1.0
+Image | prd.icp:8500/dev/ngx-admin:1.0
+Image Pull Secrets | registry-secret
 Container port | 3000
+
+*note:* v2.1.0.1 requires the setup of image pull secrets for a namespace
 
 # Expose the deployment with Service
 
